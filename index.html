@@ -693,19 +693,147 @@ footer b{color:#fff}
 </section>
 
 <!-- ===================== MÓDULO 06 · TABLERO ===================== -->
-<section class="view" id="v-tablero" data-title="Tablero Power BI">
+<section class="view" id="v-tablero" data-title="Tablero Power BI SIGDAV">
  <div class="wrap">
   <div class="sala-head"><div class="sala-num" style="background:linear-gradient(140deg,#0B3C49,#072A33)">06</div>
-   <div><span class="eyebrow">Módulo 06 · Power BI</span><h1>Nueve páginas para leer el acueducto</h1>
-   <p>El archivo SIGDAV_AZUAVETG se actualiza al refrescar el Excel. Seleccione una página para conocer su propósito.</p></div></div>
-  <div class="tabs" id="pbiTabs"></div>
-  <div class="pbi">
-    <div><h3 id="pbiT"></h3><p id="pbiD" class="lead"></p><div id="pbiV"></div></div>
-    <div class="mock"><div style="display:flex;gap:6px;margin-bottom:10px"><i style="width:10px;height:10px;border-radius:50%;background:#E5E3DE"></i><i style="width:10px;height:10px;border-radius:50%;background:#E5E3DE"></i><i style="width:10px;height:10px;border-radius:50%;background:#E5E3DE"></i></div><div class="mock-grid" id="mockGrid"></div><p class="note" style="margin:10px 0 0">Esquema ilustrativo de la página.</p></div>
+   <div><span class="eyebrow">Módulo 06 · Tablero Power BI «SIGDAV_AZUAVETG»</span><h1>Nueve páginas para leer el acueducto</h1>
+   <p>Versión interactiva de las nueve páginas del tablero SIGDAV, calculada con las 296 mediciones registradas entre enero y julio de 2026. Seleccione una página.</p></div></div>
+  <div class="tabs" data-tabs="t">
+    <button data-p="t-resumen" class="on">1. Resumen ejecutivo</button>
+    <button data-p="t-calidad">2. Calidad del agua</button>
+    <button data-p="t-hidra">3. Comportamiento hidráulico</button>
+    <button data-p="t-alertas">4. Centro de alertas</button>
+    <button data-p="t-oper">5. Gestión operativa</button>
+    <button data-p="t-dato">6. Calidad del dato</button>
+    <button data-p="t-hist">7. Histórico</button>
+    <button data-p="t-admin">8. Administración</button>
+    <button data-p="t-ficha">9. Ficha técnica</button>
+  </div>
+
+  <div class="pane on" id="t-resumen">
+    <div class="pbi-frame">
+      <div class="pbi-bar"><span class="pbi-dot"></span><b>SIGDAV — Resumen ejecutivo</b><span class="pbi-sl">Periodo <b>ene. – jul. 2026</b></span><span class="pbi-page">Página 1 de 9</span></div>
+      <div class="pbi-cards" id="tKpi"></div>
+      <div class="pbi-grid">
+        <div class="pbi-vis"><h4>Mediciones registradas por mes</h4><div class="chartbox" style="height:250px"><canvas id="tcMes" role="img" aria-label="Número de mediciones por mes y punto de monitoreo"></canvas></div></div>
+        <div class="pbi-vis"><h4>Últimas lecturas con fecha</h4><table class="data"><thead><tr><th>Fecha</th><th>Punto</th><th>pH</th><th>Turbidez</th><th>Conduct.</th><th>Estado</th></tr></thead><tbody id="tUlt"></tbody></table></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pane" id="t-calidad">
+    <div class="pbi-frame">
+      <div class="pbi-bar"><span class="pbi-dot"></span><b>SIGDAV — Calidad del agua</b><span class="pbi-sl">Periodo de análisis</span><span id="tMes" style="display:flex;flex-wrap:wrap;gap:6px"></span><span class="pbi-page">Página 2 de 9</span></div>
+      <div class="pbi-cards" id="tKpiC"></div>
+      <div class="pbi-grid">
+        <div class="pbi-vis"><h4>pH frente a la norma (6,5 – 9,0)</h4><div class="chartbox" style="height:250px"><canvas id="tcPh" role="img" aria-label="Tendencia del pH por punto de monitoreo con límites normativos"></canvas></div></div>
+        <div class="pbi-vis"><h4>Turbidez frente a la norma (≤ 2 NTU)</h4><div class="chartbox" style="height:250px"><canvas id="tcTu" role="img" aria-label="Tendencia de la turbidez por punto de monitoreo con límite normativo"></canvas></div></div>
+      </div>
+      <div class="pbi-vis" style="margin-top:10px"><h4>Resumen por punto de monitoreo</h4><table class="data"><thead><tr><th>Punto</th><th>Lecturas</th><th>pH prom. (mín. – máx.)</th><th>Turbidez prom. (máx.)</th><th>Conductividad prom. (máx.)</th></tr></thead><tbody id="tPunto"></tbody></table></div>
+    </div>
+  </div>
+
+  <div class="pane" id="t-hidra">
+    <div class="pbi-frame">
+      <div class="pbi-bar"><span class="pbi-dot"></span><b>SIGDAV — Comportamiento hidráulico</b><span class="pbi-sl">Punto <b>Boca de toma</b></span><span class="pbi-page">Página 3 de 9</span></div>
+      <div class="pbi-cards" id="tKpiQ"></div>
+      <div class="pbi-grid">
+        <div class="pbi-vis"><h4>Comportamiento del caudal (L/s)</h4><div class="chartbox" style="height:250px"><canvas id="tcQ" role="img" aria-label="Caudal diario en la boca de toma en litros por segundo"></canvas></div></div>
+        <div class="pbi-vis"><h4>Tendencia del caudal promedio mensual (L/s)</h4><div class="chartbox" style="height:250px"><canvas id="tcQm" role="img" aria-label="Caudal promedio por mes en la boca de toma"></canvas></div></div>
+      </div>
+    </div>
+    <div class="res" style="margin-top:16px"><span class="lamp c-warn"></span><div><b>Criterio de caudal por revisar</b><small>El caudal se registra en mL/s y aquí se convierte a L/s. Con el criterio actual (2 – 6 L/s, Res. 0330 de 2017) todas las lecturas quedarían en rojo; por eso esta página no las cuenta como alertas hasta ajustar el criterio a la quebrada.</small></div></div>
+  </div>
+
+  <div class="pane" id="t-alertas">
+    <div class="pbi-frame">
+      <div class="pbi-bar"><span class="pbi-dot"></span><b>SIGDAV — Centro de alertas</b><span class="pbi-sl">Variables <b>pH · turbidez · conductividad</b></span><span class="pbi-page">Página 4 de 9</span></div>
+      <div class="pbi-cards" id="tKpiA"></div>
+      <div class="pbi-grid">
+        <div class="pbi-vis"><h4>Estado del semáforo por variable</h4><div class="chartbox" style="height:250px"><canvas id="tcSem" role="img" aria-label="Lecturas en verde, amarillo y rojo por variable"></canvas></div></div>
+        <div class="pbi-vis"><h4>Lecturas en amarillo o rojo</h4><div style="max-height:250px;overflow:auto"><table class="data"><thead><tr><th>Fecha</th><th>Punto</th><th>Variable</th><th>Valor</th><th>Estado</th></tr></thead><tbody id="tAl"></tbody></table></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pane" id="t-oper">
+    <div class="pbi-frame">
+      <div class="pbi-bar"><span class="pbi-dot"></span><b>SIGDAV — Gestión operativa</b><span class="pbi-sl">Hoja <b>Eventos</b></span><span class="pbi-page">Página 5 de 9</span></div>
+      <div class="pbi-cards" id="tKpiO"></div>
+      <div class="pbi-grid">
+        <div class="pbi-vis"><h4>Variabilidad de turbidez por punto (NTU)</h4><div class="chartbox" style="height:230px"><canvas id="tcTuP" role="img" aria-label="Turbidez promedio y máxima por punto"></canvas></div></div>
+        <div class="pbi-vis"><h4>Eventos y mantenimientos</h4><table class="data"><thead><tr><th>Fecha</th><th>Tipo</th><th>Descripción</th><th>Estado</th></tr></thead><tbody id="tEv"></tbody></table></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pane" id="t-dato">
+    <div class="pbi-frame">
+      <div class="pbi-bar"><span class="pbi-dot"></span><b>SIGDAV — Calidad del dato</b><span class="pbi-sl">Registros <b>296</b></span><span class="pbi-page">Página 6 de 9</span></div>
+      <div class="pbi-cards" id="tKpiD"></div>
+      <div class="pbi-grid">
+        <div class="pbi-vis"><h4>Nivel de riesgo de calidad del dato</h4><table class="data"><thead><tr><th>Campo</th><th>Con dato</th><th>Vacíos</th><th>Riesgo</th></tr></thead><tbody id="tRisk"></tbody></table></div>
+        <div class="pbi-vis"><h4>Formas de escribir el punto de monitoreo</h4><table class="data"><thead><tr><th>Texto registrado</th><th>Registros</th></tr></thead><tbody id="tVar"></tbody></table></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pane" id="t-hist">
+    <div class="pbi-frame">
+      <div class="pbi-bar"><span class="pbi-dot"></span><b>SIGDAV — Histórico</b><span class="pbi-sl">Promedio <b>mensual</b></span><span class="pbi-page">Página 7 de 9</span></div>
+      <div class="pbi-grid">
+        <div class="pbi-vis"><h4>Tendencia histórica de pH</h4><div class="chartbox" style="height:210px"><canvas id="thPh" role="img" aria-label="pH promedio mensual"></canvas></div></div>
+        <div class="pbi-vis"><h4>Turbidez histórica (NTU)</h4><div class="chartbox" style="height:210px"><canvas id="thTu" role="img" aria-label="Turbidez promedio mensual"></canvas></div></div>
+        <div class="pbi-vis"><h4>Tendencia histórica de conductividad (µS/cm)</h4><div class="chartbox" style="height:210px"><canvas id="thCo" role="img" aria-label="Conductividad promedio mensual"></canvas></div></div>
+        <div class="pbi-vis"><h4>Tendencia histórica de caudal (L/s)</h4><div class="chartbox" style="height:210px"><canvas id="thQ" role="img" aria-label="Caudal promedio mensual en la boca de toma"></canvas></div></div>
+      </div>
+      <p class="note" style="margin:10px 4px 0">Mayo de 2026 no tiene mediciones registradas; las líneas unen abril con junio.</p>
+    </div>
+  </div>
+
+  <div class="pane" id="t-admin">
+    <div class="pbi-frame">
+      <div class="pbi-bar"><span class="pbi-dot"></span><b>SIGDAV — Administración</b><span class="pbi-sl">Acceso <b>restringido</b></span><span class="pbi-page">Página 8 de 9</span></div>
+      <div class="grid g2" id="tRoles" style="gap:10px"></div>
+      <div class="pbi-grid" style="margin-top:10px">
+        <div class="pbi-vis"><h4>Parámetros de referencia</h4><table class="data"><thead><tr><th>Variable</th><th>Unidad</th><th>Rango aceptable</th><th>Norma</th></tr></thead><tbody id="tPar"></tbody></table></div>
+        <div class="pbi-vis"><h4>Normativa de referencia</h4><table class="data"><thead><tr><th>Norma</th><th>Alcance</th><th>Uso en el tablero</th></tr></thead><tbody>
+          <tr><td>Res. 2115 de 2007</td><td>Calidad del agua para consumo humano</td><td>Semáforo de pH, turbidez y conductividad</td></tr>
+          <tr><td>Decreto 1575 de 2007</td><td>Protección y control de la calidad del agua</td><td>Marco general</td></tr>
+          <tr><td>Res. 0330 de 2017</td><td>Reglamento técnico de agua potable</td><td>Criterio de caudal</td></tr></tbody></table>
+          <p class="note" style="margin:8px 0 0">Uso de datos sujeto a la Ley 1581 de 2012 (protección de datos personales).</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pane" id="t-ficha">
+    <div class="pbi-frame">
+      <div class="pbi-bar"><span class="pbi-dot"></span><b>SIGDAV — Ficha técnica</b><span class="pbi-sl">Vereda Tierra Grata · Facatativá, Cundinamarca</span><span class="pbi-page">Página 9 de 9</span></div>
+      <div class="pbi-cards">
+        <div class="pbi-card"><b>309</b><span>Suscriptores activos</span></div>
+        <div class="pbi-card"><b>2,63 L/s</b><span>Tratados en la PTAP</span></div>
+        <div class="pbi-card"><b>108 m³</b><span>Capacidad del tanque</span></div>
+        <div class="pbi-card"><b>6 h/día</b><span>Continuidad, por sectores</span></div>
+      </div>
+      <div class="pbi-grid">
+        <div class="pbi-vis"><h4>Identificación del prestador</h4><table class="data"><tbody>
+          <tr><th>Prestador</th><td style="white-space:normal">Asociación de Usuarios del Servicio de Agua Potable y Alcantarillado Vereda Tierra Grata (ASUAVETG)</td></tr>
+          <tr><th>Ubicación</th><td style="white-space:normal">Vereda Tierra Grata, cruce El Rosal – Facatativá, puesto de salud</td></tr>
+          <tr><th>Fuente</th><td>Quebrada Puerto Colombia</td></tr>
+          <tr><th>Tipo de fuente</th><td>Superficial</td></tr>
+          <tr><th>Concesión de aguas</th><td>No registra</td></tr></tbody></table></div>
+        <div class="pbi-vis"><h4>Sistema de tratamiento y monitoreo</h4><table class="data"><tbody>
+          <tr><th>PTAP</th><td>Sí, en funcionamiento</td></tr>
+          <tr><th>Operación de la PTAP</th><td>Eléctrica</td></tr>
+          <tr><th>Sistema</th><td>SIGDAV v1.0</td></tr>
+          <tr><th>Parámetros</th><td>pH · turbidez · conductividad · caudal</td></tr>
+          <tr><th>Puntos de monitoreo</th><td style="white-space:normal">5 configurados; 2 con registros (boca de toma y tanque)</td></tr>
+          <tr><th>Institución</th><td style="white-space:normal">Universidad de Cundinamarca · Ingeniería Ambiental, 2026</td></tr></tbody></table></div>
+      </div>
+    </div>
   </div>
  </div>
 </section>
-
 <!-- ===================== MÓDULO 07 · ESTACION ===================== -->
 <section class="view" id="v-estacion" data-title="Estación de monitoreo 3D">
  <div class="wrap">
@@ -1101,20 +1229,70 @@ PANE['r-dq']=()=>{const keys=[['pH','ph'],['Turbidez','turb'],['Conductividad','
   ['ok','pH y conductividad consistentes','Todos los valores se encuentran en rangos físicamente plausibles y dentro de la norma.']];
  $('dq').innerHTML=dq.map(d=>`<div class="res"><span class="lamp c-${d[0]}"></span><div><b>${d[1]}</b><small>${d[2]}</small></div></div>`).join('')};
 
-INIT.tablero=()=>{const PBI=[
- ['Resumen Ejecutivo','Vista general del acueducto: indicadores clave y semáforo de la última lectura de cada variable.',['KPI de pH, turbidez, conductividad y caudal','Cumplimiento normativo','Navegación a las demás páginas'],[1,1,1,1,'w2','w2','w4']],
- ['Calidad del Agua','Seguimiento de pH, turbidez y conductividad frente a los límites de la Resolución 2115 de 2007.',['Tendencias históricas por variable','Variabilidad de la turbidez por punto','Líneas de referencia normativa'],['w2','w2',1,1,1,1]],
- ['Comportamiento Hidráulico','Evolución del caudal en la fuente. Es la página que hoy se usa como alerta temprana para solicitar carrotanques.',['Comportamiento del caudal (L/s)','Tendencia del caudal promedio mensual','Umbrales operativos'],['w4','w2','w2']],
- ['Centro de Alertas','Lecturas en amarillo o rojo, con la recomendación asociada a la norma.',['Alertas activas','Conteo por variable','Alerta operativa'],[1,1,1,1,'w4','w4']],
- ['Gestión Operativa','Bitácora de mantenimientos y novedades registrados en la hoja Eventos.',['Eventos y mantenimientos','Estado: completado o en proceso','Responsables'],['w2',1,1,'w4']],
- ['Calidad del Dato','Identifica valores atípicos y vacíos generados en la digitación manual.',['Nivel de riesgo de la calidad del dato','Registros incompletos','Valores atípicos'],[1,1,1,1,'w2','w2']],
- ['Histórico','Comparación de periodos para reconocer patrones estacionales.',['Tendencias históricas','Filtro por periodo de análisis','Comparativo mensual'],['w4','w2','w2']],
- ['Administración','Parámetros de referencia y puntos de monitoreo configurados en el modelo.',['Parámetros de referencia','Puntos de monitoreo','Tendencia de registros'],['w2','w2','w4']],
- ['Ficha Técnica','Datos del prestador: fuente de abastecimiento, tipo de fuente y ubicación.',['Prestador y vereda','Fuente: quebrada Puerto Colombia','Tipo de fuente: superficial'],['w4',1,1,1,1]]];
- $('pbiTabs').innerHTML=PBI.map((p,i)=>`<button data-i="${i}">${i+1}. ${p[0]}</button>`).join('');
- const set=i=>{$('pbiTabs').querySelectorAll('button').forEach(b=>b.classList.toggle('on',+b.dataset.i===i));const p=PBI[i];$('pbiT').textContent=p[0];$('pbiD').textContent=p[1];
-  $('pbiV').innerHTML=p[2].map(v=>`<div class="res"><span class="lamp" style="background:${C.aqua}"></span><div><b>${v}</b></div></div>`).join('');$('mockGrid').innerHTML=p[3].map(c=>`<div class="${c===1?'':c}"></div>`).join('')};
- $('pbiTabs').querySelectorAll('button').forEach(b=>b.onclick=()=>set(+b.dataset.i));set(0)};
+/* ================= MÓDULO 06 · TABLERO SIGDAV ================= */
+const TP={B:'Boca de toma',T:'Tanque de distribución'},TPC={B:C.teal,T:C.coral};
+const avg=a=>a.length?a.reduce((x,y)=>x+y,0)/a.length:null;
+const cards=(id,arr)=>{$(id).innerHTML=arr.map(c=>`<div class="pbi-card"><b>${c[0]}</b><span>${c[1]}</span></div>`).join('')};
+const dated=M.filter(r=>r.f).sort((a,b)=>(a.f+(a.h||'')).localeCompare(b.f+(b.h||'')));
+const mLab=months.map(m=>MES[m].slice(0,3)+'.');
+const worst=r=>{const s=['ph','turb','cond'].map(k=>state(k,r[k]));return s.includes('bad')?'bad':s.includes('warn')?'warn':s.every(x=>x==='na')?'na':'ok'};
+const lamp=s=>`<span class="lamp c-${s}" style="display:inline-block;width:10px;height:10px;vertical-align:middle;margin-right:6px"></span>${stName[s]}`;
+const qB=M.filter(r=>r.p==='B'&&r.q!=null&&r.q>10);
+const limDs=(lab,v,n)=>({label:lab,data:Array(n).fill(v),borderColor:C.bad,borderDash:[6,4],pointRadius:0,borderWidth:1.5,fill:false});
+INIT.tablero=()=>{};
+PANE['t-resumen']=()=>{
+ cards('tKpi',[[M.length,'Mediciones registradas'],[dated.length,'Con fecha'],[fmt(avg(M.map(r=>r.ph).filter(v=>v!=null)),2),'pH promedio'],[fmt(avg(M.map(r=>r.turb).filter(v=>v!=null)),2)+' NTU','Turbidez promedio'],[fmt(avg(M.map(r=>r.cond).filter(v=>v!=null)),0),'Conductividad prom. (µS/cm)'],[fmt(avg(qB.map(r=>r.q))/1000,2)+' L/s','Caudal prom. boca de toma']]);
+ new Chart($('tcMes'),{type:'bar',data:{labels:mLab,datasets:['B','T'].map(p=>({label:TP[p],data:months.map(m=>dated.filter(r=>r.p===p&&+r.f.slice(5,7)===m).length),backgroundColor:TPC[p],borderRadius:4}))},options:{maintainAspectRatio:false,scales:{x:{stacked:true},y:{stacked:true}}}});
+ $('tUlt').innerHTML=dated.slice(-8).reverse().map(r=>`<tr><td>${r.f}</td><td>${TP[r.p]}</td><td>${fmt(r.ph,1)}</td><td>${fmt(r.turb,1)}</td><td>${fmt(r.cond,0)}</td><td>${lamp(worst(r))}</td></tr>`).join('');
+};
+let tCh=[];
+PANE['t-calidad']=()=>{
+ $('tMes').innerHTML=['all',...months].map(m=>`<button class="chip${m==='all'?' on':''}" data-m="${m}" style="border:1px solid #cfd8da;background:#fff;border-radius:999px;padding:3px 10px;font-size:.78rem;cursor:pointer">${m==='all'?'Todos':MES[m]}</button>`).join('');
+ const draw=m=>{tCh.forEach(c=>c.destroy());tCh=[];
+  const S=dated.filter(r=>m==='all'||+r.f.slice(5,7)===+m),pct=k=>{const v=S.filter(r=>r[k]!=null);return v.length?fmt(100*v.filter(r=>state(k,r[k])!=='bad').length/v.length,0)+' %':'—'};
+  cards('tKpiC',[[S.length,'Lecturas con fecha'],[pct('ph'),'pH dentro de la norma'],[pct('turb'),'Turbidez dentro de la norma'],[pct('cond'),'Conductividad dentro de la norma']]);
+  const days=[...new Set(S.map(r=>r.f))];
+  const line=(id,k,lims)=>tCh.push(new Chart($(id),{type:'line',data:{labels:days,datasets:[...['B','T'].map(p=>({label:TP[p],data:days.map(d=>{const v=S.filter(r=>r.f===d&&r.p===p&&r[k]!=null).map(r=>r[k]);return v.length?avg(v):null}),borderColor:TPC[p],backgroundColor:TPC[p],pointRadius:2,tension:.25,spanGaps:true})),...lims.map(l=>limDs(l[0],l[1],days.length))]},options:{maintainAspectRatio:false,scales:{x:{ticks:{maxTicksLimit:8}}}}}));
+  line('tcPh','ph',[['Mínimo 6,5',6.5],['Máximo 9,0',9]]);line('tcTu','turb',[['Máximo 2 NTU',2]]);
+  $('tPunto').innerHTML=['B','T'].map(p=>{const R=S.filter(r=>r.p===p),g=k=>R.map(r=>r[k]).filter(v=>v!=null);const ph=g('ph'),tu=g('turb'),co=g('cond');
+   return`<tr><td>${TP[p]}</td><td>${R.length}</td><td>${fmt(avg(ph),2)} (${ph.length?fmt(Math.min(...ph),1)+' – '+fmt(Math.max(...ph),1):'—'})</td><td>${fmt(avg(tu),2)} (${tu.length?fmt(Math.max(...tu),1):'—'})</td><td>${fmt(avg(co),0)} (${co.length?fmt(Math.max(...co),0):'—'})</td></tr>`}).join('')};
+ $('tMes').querySelectorAll('button').forEach(b=>b.onclick=()=>{$('tMes').querySelectorAll('button').forEach(x=>{x.classList.toggle('on',x===b);x.style.background=x===b?C.teal:'#fff';x.style.color=x===b?'#fff':''});draw(b.dataset.m)});
+ $('tMes').querySelector('button').click();
+};
+PANE['t-hidra']=()=>{const Q=qB.filter(r=>r.f).sort((a,b)=>a.f.localeCompare(b.f)),v=qB.map(r=>r.q/1000);
+ cards('tKpiQ',[[qB.length,'Lecturas de caudal válidas'],[fmt(avg(v),2)+' L/s','Caudal promedio'],[fmt(Math.min(...v),2)+' L/s','Mínimo registrado'],[fmt(Math.max(...v),2)+' L/s','Máximo registrado']]);
+ new Chart($('tcQ'),{type:'line',data:{labels:Q.map(r=>r.f),datasets:[{label:'Caudal (L/s)',data:Q.map(r=>r.q/1000),borderColor:C.teal,backgroundColor:'rgba(93,202,165,.25)',fill:true,pointRadius:1.5,tension:.25}]},options:{maintainAspectRatio:false,scales:{x:{ticks:{maxTicksLimit:8}}}}});
+ new Chart($('tcQm'),{type:'bar',data:{labels:mLab,datasets:[{label:'Caudal promedio (L/s)',data:months.map(m=>avg(Q.filter(r=>+r.f.slice(5,7)===m).map(r=>r.q/1000))),backgroundColor:C.aqua,borderRadius:6}]},options:{maintainAspectRatio:false,plugins:{legend:{display:false}}}});
+};
+PANE['t-alertas']=()=>{const K=['ph','turb','cond'],cnt=k=>['ok','warn','bad'].map(s=>M.filter(r=>r[k]!=null&&state(k,r[k])===s).length),T=K.map(cnt);
+ const tot=i=>T.reduce((a,t)=>a+t[i],0);
+ cards('tKpiA',[[tot(0)+tot(1)+tot(2),'Valores evaluados'],[tot(0),'En verde'],[tot(1),'En amarillo'],[tot(2),'En rojo']]);
+ new Chart($('tcSem'),{type:'bar',data:{labels:K.map(k=>VARS[k].n),datasets:[['Verde',C.ok],['Amarillo',C.warn],['Rojo',C.bad]].map((s,i)=>({label:s[0],data:T.map(t=>t[i]),backgroundColor:s[1],borderRadius:4}))},options:{maintainAspectRatio:false,indexAxis:'y',scales:{x:{stacked:true},y:{stacked:true}}}});
+ const A=[];M.forEach(r=>K.forEach(k=>{const s=state(k,r[k]);if(s==='warn'||s==='bad')A.push([r.f||'Sin fecha',TP[r.p],VARS[k].n,fmt(r[k],k==='cond'?0:1)+' '+VARS[k].u,s])}));
+ A.sort((a,b)=>(b[0]==='Sin fecha'?'0':b[0]).localeCompare(a[0]==='Sin fecha'?'0':a[0]));
+ $('tAl').innerHTML=A.length?A.map(a=>`<tr><td>${a[0]}</td><td>${a[1]}</td><td>${a[2]}</td><td>${a[3]}</td><td>${lamp(a[4])}</td></tr>`).join(''):'<tr><td colspan="5">Sin alertas</td></tr>';
+};
+PANE['t-oper']=()=>{const E=RAW.e;
+ cards('tKpiO',[[E.length,'Eventos registrados'],[E.filter(e=>e[2]==='Mantenimiento').length,'Mantenimientos'],[E.filter(e=>e[2]==='Novedad').length,'Novedades'],[E.filter(e=>e[4]!=='Completado').length,'En proceso']]);
+ new Chart($('tcTuP'),{type:'bar',data:{labels:['B','T'].map(p=>TP[p]),datasets:[['Promedio',avg],['Máximo',a=>a.length?Math.max(...a):null]].map((s,i)=>({label:s[0],data:['B','T'].map(p=>s[1](M.filter(r=>r.p===p&&r.turb!=null).map(r=>r.turb))),backgroundColor:i?C.coral:C.teal,borderRadius:6}))},options:{maintainAspectRatio:false}});
+ $('tEv').innerHTML=E.map(e=>`<tr><td>${e[1]}</td><td>${e[2]}</td><td style="white-space:normal">${e[3]}</td><td>${lamp(e[4]==='Completado'?'ok':'warn').replace(/Verde|Amarillo/,e[4])}</td></tr>`).join('');
+};
+PANE['t-dato']=()=>{const F=[['Fecha','f'],['Hora','h'],['pH','ph'],['Turbidez','turb'],['Conductividad','cond'],['Caudal','q'],['Observación','obs']];
+ const vr={};M.forEach(r=>vr[r.raw]=(vr[r.raw]||0)+1);const full=M.filter(r=>F.slice(0,6).every(f=>r[f[1]]!=null)).length;
+ cards('tKpiD',[[M.length,'Registros'],[M.filter(r=>!r.f).length,'Sin fecha'],[Object.keys(vr).length,'Formas de escribir el punto'],[fmt(100*full/M.length,0)+' %','Registros completos']]);
+ $('tRisk').innerHTML=F.map(f=>{const n=M.filter(r=>r[f[1]]!=null).length,v=M.length-n,p=v/M.length,s=f[1]==='obs'?'ok':p>.5?'bad':p>.2?'warn':'ok';
+  return`<tr><td>${f[0]}</td><td>${n}</td><td>${v}</td><td>${f[1]==='obs'?'Campo opcional':lamp(s).replace(/Verde|Amarillo|Rojo/,{ok:'Bajo',warn:'Medio',bad:'Alto'}[s])}</td></tr>`}).join('');
+ $('tVar').innerHTML=Object.entries(vr).sort((a,b)=>b[1]-a[1]).map(v=>`<tr><td>«${v[0]}»</td><td>${v[1]}</td></tr>`).join('');
+};
+PANE['t-hist']=()=>{const mm=(k,P)=>months.map(m=>avg(dated.filter(r=>+r.f.slice(5,7)===m&&(!P||r.p===P)&&r[k]!=null&&(k!=='q'||r[k]>10)).map(r=>k==='q'?r.q/1000:r[k])));
+ const mk=(id,k,col,P)=>new Chart($(id),{type:'line',data:{labels:mLab,datasets:[{label:VARS[k].n+' ('+VARS[k].u+')',data:mm(k,P),borderColor:col,backgroundColor:col,tension:.3,pointRadius:4,spanGaps:true}]},options:{maintainAspectRatio:false,plugins:{legend:{display:false}}}});
+ mk('thPh','ph',C.teal);mk('thTu','turb',C.coral);mk('thCo','cond',C.green);mk('thQ','q',C.deep,'B');
+};
+PANE['t-admin']=()=>{
+ $('tRoles').innerHTML=[['Operador (fontanero)','Registra a diario las lecturas en el Excel BaseDatos_AZUAVETG.'],['Junta directiva','Consulta el tablero y decide acciones: carrotanques, mantenimientos, avisos.'],['Administrador del modelo','Actualiza parámetros, puntos de monitoreo y la conexión con el Excel.'],['Comunidad','Recibe información agregada; no se publican datos personales.']].map(r=>`<div class="res"><span class="lamp" style="background:${C.aqua}"></span><div><b>${r[0]}</b><small>${r[1]}</small></div></div>`).join('');
+ $('tPar').innerHTML=Object.values(VARS).map(v=>`<tr><td>${v.n}</td><td>${v.u}</td><td>${v.n==='pH'?'6,5 – 9,0':v.n==='Caudal'?'2 – 6':'≤ '+fmt(v.hi,0)}</td><td>${v.norma}</td></tr>`).join('');
+};
+
 
 const GS=['S1','S2','S3','S4','S5','S6'],GC=['#0E7C7B','#5DCAA5','#639922','#B8F28A','#F28F3B','#A65A1F'];
 const money=v=>'$'+Math.round(v).toLocaleString('es-CO'),mM=v=>'$'+fmt(v/1e6,1)+' M';
