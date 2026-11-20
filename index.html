@@ -163,7 +163,7 @@ table.data th{position:sticky;top:0;background:#F1EFE9;cursor:pointer}
 .sala-card h3{font-size:1.25rem;margin:0 0 4px}
 .sala-card p{margin:0;font-size:.86rem;opacity:.9;line-height:1.4}
 .sala-card .go{margin-top:10px;font-weight:700;font-size:.8rem;letter-spacing:.06em}
-.sala-card.new::before{content:"NUEVA";position:absolute;top:14px;left:50px;background:var(--lime);color:var(--deep2);font-size:.62rem;font-weight:800;padding:2px 8px;border-radius:99px;letter-spacing:.1em}
+.sala-card.new::before{content:"NUEVO";position:absolute;top:14px;left:50px;background:var(--lime);color:var(--deep2);font-size:.62rem;font-weight:800;padding:2px 8px;border-radius:99px;letter-spacing:.1em}
 .who{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:20px}
 .who button{border:1px solid var(--line);background:#fff;border-radius:16px;padding:16px;text-align:left;cursor:pointer;transition:.2s}
 .who button:hover{border-color:var(--teal);transform:translateY(-3px)}
@@ -266,22 +266,22 @@ footer b{color:#fff}
   </button>
   <div class="crumb" id="crumb"></div>
   <div class="sp"></div>
-  <button class="btn-mini" onclick="go('inicio')" aria-label="Mapa de salas">⌂<span> Mapa de salas</span></button>
+  <button class="btn-mini" onclick="go('inicio')" aria-label="Mapa de módulos">⌂<span> Mapa de módulos</span></button>
 </header>
 
-<nav class="dock" id="dock" aria-label="Salas del observatorio"></nav>
+<nav class="dock" id="dock" aria-label="Módulos del observatorio"></nav>
 
 <!-- ===================== INICIO / HUB ===================== -->
 <main>
-<section class="view" id="v-inicio" data-title="Mapa de salas">
+<section class="view" id="v-inicio" data-title="Mapa de módulos">
   <div class="hub-hero">
     <div>
       <span class="eyebrow" style="color:var(--lime)">Observatorio local de gobernanza del agua · Facatativá, Cundinamarca</span>
       <h1>Un acueducto comunitario contado con <em>datos</em></h1>
-      <p>Recorra la historia de la vereda Tierra Grata, su red de agua, las mediciones de calidad y las decisiones que toma la comunidad. Cada sala es una interfaz independiente: explore a su ritmo.</p>
+      <p>Recorra la historia de la vereda Tierra Grata, su red de agua, las mediciones de calidad y las decisiones que toma la comunidad. Cada módulo es una interfaz independiente: explore a su ritmo.</p>
       <div class="cta">
         <button class="btn lime" onclick="go('historia')">Comenzar por la historia →</button>
-        <button class="btn ghost" onclick="document.getElementById('salasGrid').scrollIntoView({behavior:'smooth'})">Ver todas las salas</button>
+        <button class="btn ghost" onclick="document.getElementById('salasGrid').scrollIntoView({behavior:'smooth'})">Ver todos los módulos</button>
       </div>
       <div class="hub-kpis">
         <div><b>1993</b><span>fundación reportada</span></div>
@@ -314,13 +314,13 @@ footer b{color:#fff}
   </div>
 </section>
 
-<!-- ===================== SALA 01 · HISTORIA ===================== -->
+<!-- ===================== MÓDULO 01 · HISTORIA ===================== -->
 <section class="view" id="v-historia" data-title="Historia y territorio">
  <div class="wrap">
   <div class="sala-head">
     <div class="sala-num" style="background:linear-gradient(140deg,#0E7C7B,#0B3C49)">01</div>
-    <div><span class="eyebrow">Sala 01 · Memoria institucional</span><h1>Historia y territorio de ASUAVETG</h1>
-    <p>La Asociación de Usuarios de Acueducto y Alcantarillado de la Vereda Tierra Grata nace del esfuerzo colectivo de sus habitantes para contar con agua potable. Esta sala reconstruye su trayectoria con datos fechados y fuentes verificables.</p></div>
+    <div><span class="eyebrow">Módulo 01 · Memoria institucional</span><h1>Historia y territorio de ASUAVETG</h1>
+    <p>La Asociación de Usuarios de Acueducto y Alcantarillado de la Vereda Tierra Grata nace del esfuerzo colectivo de sus habitantes para contar con agua potable. Este módulo reconstruye su trayectoria con datos fechados y fuentes verificables.</p></div>
   </div>
   <div class="tabs" role="tablist" data-tabs="h">
     <button data-p="h-resumen" class="on">★ Datos clave</button>
@@ -360,7 +360,7 @@ footer b{color:#fff}
         </table>
       </div>
       <div class="card dark">
-        <h3 style="color:var(--lime)">Cómo leer esta sala</h3>
+        <h3 style="color:var(--lime)">Cómo leer este módulo</h3>
         <p>Cada dato conserva su fecha, su fuente y su estado de validación:</p>
         <p><span class="chip doc">✓ Documentado</span> respaldado por un informe con página citada.</p>
         <p><span class="chip ver">! Por verificar</span> reportado, pero requiere soporte primario (acta, certificación o serie de medición).</p>
@@ -536,11 +536,11 @@ footer b{color:#fff}
  </div>
 </section>
 
-<!-- ===================== SALA 02 · SIGDAV ===================== -->
+<!-- ===================== MÓDULO 02 · SIGDAV ===================== -->
 <section class="view" id="v-sigdav" data-title="SIGDAV: el sistema">
  <div class="wrap">
   <div class="sala-head"><div class="sala-num" style="background:linear-gradient(140deg,#639922,#3d6a12)">02</div>
-   <div><span class="eyebrow">Sala 02 · Modelo de datos</span><h1>SIGDAV: del registro manual a la alerta</h1>
+   <div><span class="eyebrow">Módulo 02 · Modelo de datos</span><h1>SIGDAV: del registro manual a la alerta</h1>
    <p>Sistema Integral de Gestión de Datos para Acueductos Veredales. Une una base de datos en Excel, que el operador alimenta cada día, con un tablero en Power BI que se actualiza al refrescar el archivo.</p></div></div>
   <div class="tabs" data-tabs="s"><button data-p="s-problema" class="on">⚠️ El problema</button><button data-p="s-flujo">🔄 Cómo funciona</button><button data-p="s-vars">🧪 Las 4 variables</button></div>
   <div class="pane on" id="s-problema">
@@ -569,11 +569,11 @@ footer b{color:#fff}
  </div>
 </section>
 
-<!-- ===================== SALA 03 · DATOS ===================== -->
-<section class="view" id="v-datos" data-title="Sala de datos">
+<!-- ===================== MÓDULO 03 · DATOS ===================== -->
+<section class="view" id="v-datos" data-title="Datos y mediciones">
  <div class="wrap">
   <div class="sala-head"><div class="sala-num" style="background:linear-gradient(140deg,#5DCAA5,#0E7C7B)">03</div>
-   <div><span class="eyebrow">Sala 03 · Visualización</span><h1>296 mediciones reales, enero – julio de 2026</h1>
+   <div><span class="eyebrow">Módulo 03 · Visualización</span><h1>296 mediciones reales, enero – julio de 2026</h1>
    <p>Datos del modelo Power BI SIGDAV_AZUAVETG. Elija la variable, el punto y el mes; la banda verde marca el rango de referencia.</p></div></div>
   <div class="tabs" data-tabs="d"><button data-p="d-explorar" class="on">📈 Explorador</button><button data-p="d-mes">📅 Vista mensual</button><button data-p="d-reg">📋 Registros</button></div>
   <div class="pane on" id="d-explorar">
@@ -606,11 +606,11 @@ footer b{color:#fff}
  </div>
 </section>
 
-<!-- ===================== SALA 04 · SEMAFORO ===================== -->
+<!-- ===================== MÓDULO 04 · SEMAFORO ===================== -->
 <section class="view" id="v-semaforo" data-title="Semáforo normativo">
  <div class="wrap">
   <div class="sala-head"><div class="sala-num" style="background:linear-gradient(140deg,#F2B705,#c48a00)">04</div>
-   <div><span class="eyebrow">Sala 04 · Simulador</span><h1>Pruebe cómo SIGDAV clasifica una lectura</h1>
+   <div><span class="eyebrow">Módulo 04 · Simulador</span><h1>Pruebe cómo SIGDAV clasifica una lectura</h1>
    <p>Mueva los controles para simular una medición. El semáforo traduce la norma en una alerta comprensible y en una recomendación para el operador.</p></div></div>
   <div class="sim">
     <div class="card">
@@ -630,11 +630,11 @@ footer b{color:#fff}
  </div>
 </section>
 
-<!-- ===================== SALA 05 · RESULTADOS ===================== -->
+<!-- ===================== MÓDULO 05 · RESULTADOS ===================== -->
 <section class="view" id="v-resultados" data-title="Resultados y calidad del dato">
  <div class="wrap">
   <div class="sala-head"><div class="sala-num" style="background:linear-gradient(140deg,#F28F3B,#A65A1F)">05</div>
-   <div><span class="eyebrow">Sala 05 · Hallazgos</span><h1>Lo que muestran los datos</h1>
+   <div><span class="eyebrow">Módulo 05 · Hallazgos</span><h1>Lo que muestran los datos</h1>
    <p>296 mediciones entre enero y julio de 2026, comparadas con la Resolución 2115 de 2007 y con el criterio operativo de caudal.</p></div></div>
   <div class="tabs" data-tabs="r"><button data-p="r-res" class="on">🎯 Resultados</button><button data-p="r-dq">🔍 Calidad del dato</button><button data-p="r-lim">🧭 Limitaciones</button></div>
   <div class="pane on" id="r-res">
@@ -676,11 +676,11 @@ footer b{color:#fff}
  </div>
 </section>
 
-<!-- ===================== SALA 06 · TABLERO ===================== -->
+<!-- ===================== MÓDULO 06 · TABLERO ===================== -->
 <section class="view" id="v-tablero" data-title="Tablero Power BI">
  <div class="wrap">
   <div class="sala-head"><div class="sala-num" style="background:linear-gradient(140deg,#0B3C49,#072A33)">06</div>
-   <div><span class="eyebrow">Sala 06 · Power BI</span><h1>Nueve páginas para leer el acueducto</h1>
+   <div><span class="eyebrow">Módulo 06 · Power BI</span><h1>Nueve páginas para leer el acueducto</h1>
    <p>El archivo SIGDAV_AZUAVETG se actualiza al refrescar el Excel. Seleccione una página para conocer su propósito.</p></div></div>
   <div class="tabs" id="pbiTabs"></div>
   <div class="pbi">
@@ -690,11 +690,11 @@ footer b{color:#fff}
  </div>
 </section>
 
-<!-- ===================== SALA 07 · ESTACION ===================== -->
+<!-- ===================== MÓDULO 07 · ESTACION ===================== -->
 <section class="view" id="v-estacion" data-title="Estación de monitoreo 3D">
  <div class="wrap">
   <div class="sala-head"><div class="sala-num" style="background:linear-gradient(140deg,#B8F28A,#639922);color:#072A33">07</div>
-   <div><span class="eyebrow">Sala 07 · Fase futura</span><h1>Estación de monitoreo conceptual en 3D</h1>
+   <div><span class="eyebrow">Módulo 07 · Fase futura</span><h1>Estación de monitoreo conceptual en 3D</h1>
    <p>Diseño para la bocatoma que mediría las cuatro variables a la vez y enviaría los datos a la plataforma. Es un prototipo conceptual: aún no se construye ni se valida en campo. Gire el modelo y seleccione sus componentes.</p></div></div>
   <div class="est">
     <canvas id="est3d" role="img" aria-label="Modelo 3D de la estación flotante con sensores, boyas y caja electrónica"></canvas>
@@ -703,11 +703,11 @@ footer b{color:#fff}
  </div>
 </section>
 
-<!-- ===================== SALA 08 · GESTION ===================== -->
+<!-- ===================== MÓDULO 08 · GESTION ===================== -->
 <section class="view" id="v-gestion" data-title="Gestión y usuarios">
  <div class="wrap">
   <div class="sala-head"><div class="sala-num" style="background:linear-gradient(140deg,#A65A1F,#6e3a12)">08</div>
-   <div><span class="eyebrow">Sala 08 · Gestión comercial</span><h1>Usuarios, consumo y cartera</h1>
+   <div><span class="eyebrow">Módulo 08 · Gestión comercial</span><h1>Usuarios, consumo y cartera</h1>
    <p>Indicadores agregados de las plantillas de facturación de febrero de 2026. No se publican nombres, identificaciones ni datos de contacto de los suscriptores.</p></div></div>
   <div class="grid g4">
     <div class="card kpi"><span class="tag">Suscriptores</span><b id="kS" style="margin-top:8px"></b><span>Con acueducto: <b id="kAc" style="display:inline;font-size:1em"></b> · con alcantarillado: <b id="kAl" style="display:inline;font-size:1em"></b></span></div>
@@ -722,11 +722,11 @@ footer b{color:#fff}
  </div>
 </section>
 
-<!-- ===================== SALA 09 · EQUIPO ===================== -->
+<!-- ===================== MÓDULO 09 · EQUIPO ===================== -->
 <section class="view" id="v-equipo" data-title="Equipo y referencias">
  <div class="wrap">
   <div class="sala-head"><div class="sala-num" style="background:linear-gradient(140deg,#2d4f80,#1b3156)">09</div>
-   <div><span class="eyebrow">Sala 09 · Créditos</span><h1>Equipo, difusión y normativa</h1></div></div>
+   <div><span class="eyebrow">Módulo 09 · Créditos</span><h1>Equipo, difusión y normativa</h1></div></div>
   <div class="grid g3">
     <div class="card"><h3>Investigación SIGDAV</h3>
       <p><b>Jesús Emmanuel Contreras Robles</b><br><span class="note">Autor · Ingeniería Ambiental</span></p>
@@ -769,7 +769,7 @@ if(window.Chart){Chart.defaults.font.family='Inter';Chart.defaults.color='#5C6B6
 const SALAS=[
  {id:'historia',n:'01',t:'Historia y territorio',d:'Fundación, línea de tiempo, fuentes de agua, sectores y comunidad.',ic:'🏞️',g:'linear-gradient(140deg,#0E7C7B,#0B3C49)',nw:1},
  {id:'sigdav',n:'02',t:'SIGDAV: el sistema',d:'Del registro manual a la alerta: flujo y variables.',ic:'⚙️',g:'linear-gradient(140deg,#639922,#2f5410)'},
- {id:'datos',n:'03',t:'Sala de datos',d:'Explorador de 296 mediciones, calendario y registros.',ic:'📊',g:'linear-gradient(140deg,#5DCAA5,#0E7C7B)'},
+ {id:'datos',n:'03',t:'Datos y mediciones',d:'Explorador de 296 mediciones, calendario y registros.',ic:'📊',g:'linear-gradient(140deg,#5DCAA5,#0E7C7B)'},
  {id:'semaforo',n:'04',t:'Semáforo normativo',d:'Simule una lectura y reciba la recomendación.',ic:'🚦',g:'linear-gradient(140deg,#e0a800,#9a6c00)'},
  {id:'resultados',n:'05',t:'Resultados',d:'Hallazgos, calidad del dato y limitaciones.',ic:'🎯',g:'linear-gradient(140deg,#F28F3B,#A65A1F)'},
  {id:'tablero',n:'06',t:'Tablero Power BI',d:'Las nueve páginas del tablero SIGDAV.',ic:'🖥️',g:'linear-gradient(140deg,#14505d,#072A33)'},
@@ -777,9 +777,9 @@ const SALAS=[
  {id:'gestion',n:'08',t:'Gestión y usuarios',d:'Suscriptores, consumo y cartera por sector.',ic:'🧾',g:'linear-gradient(140deg,#A65A1F,#5e3110)'},
  {id:'equipo',n:'09',t:'Equipo y normativa',d:'Autores, difusión, normas y glosario.',ic:'📚',g:'linear-gradient(140deg,#2d4f80,#1b3156)'}
 ];
-$('salasGrid').innerHTML='<h2 style="margin-top:40px">Salas del observatorio</h2><div class="salas">'+SALAS.map(s=>`<button class="sala-card ${s.nw?'new':''}" style="background:${s.g}" onclick="go('${s.id}')"><span class="n">${s.n}</span><span class="ic" aria-hidden="true">${s.ic}</span><h3>${s.t}</h3><p>${s.d}</p><span class="go">ENTRAR →</span></button>`).join('')+'</div>';
+$('salasGrid').innerHTML='<h2 style="margin-top:40px">Módulos del observatorio</h2><div class="salas">'+SALAS.map(s=>`<button class="sala-card ${s.nw?'new':''}" style="background:${s.g}" onclick="go('${s.id}')"><span class="n">${s.n}</span><span class="ic" aria-hidden="true">${s.ic}</span><h3>${s.t}</h3><p>${s.d}</p><span class="go">ENTRAR →</span></button>`).join('')+'</div>';
 $('dock').innerHTML=`<button data-go="inicio"><i>⌂</i>Inicio</button>`+SALAS.map(s=>`<button data-go="${s.id}"><i>${s.ic}</i>${s.n}</button>`).join('');
-$('dock').querySelectorAll('button').forEach(b=>{b.onclick=()=>go(b.dataset.go);const s=SALAS.find(x=>x.id===b.dataset.go);b.title=s?s.t:'Mapa de salas';b.setAttribute('aria-label',b.title)});
+$('dock').querySelectorAll('button').forEach(b=>{b.onclick=()=>go(b.dataset.go);const s=SALAS.find(x=>x.id===b.dataset.go);b.title=s?s.t:'Mapa de módulos';b.setAttribute('aria-label',b.title)});
 
 const INIT={}, done=new Set();
 function go(v){location.hash='#/'+v}
@@ -789,7 +789,7 @@ function route(){
  document.querySelectorAll('.view').forEach(s=>s.classList.toggle('on',s===el));
  document.body.classList.toggle('is-hub',id==='inicio');
  $('dock').querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.go===id));
- const s=SALAS.find(x=>x.id===id);$('crumb').innerHTML=s?`Sala ${s.n} · <b>${s.t}</b>`:'<b>Mapa de salas</b>';
+ const s=SALAS.find(x=>x.id===id);$('crumb').innerHTML=s?`Módulo ${s.n} · <b>${s.t}</b>`:'<b>Mapa de módulos</b>';
  document.title=(s?s.t+' · ':'')+'Observatorio Tierra Grata';
  scrollTo(0,0);
  if(!done.has(id)){done.add(id);INIT[id]&&INIT[id]()}
@@ -1069,7 +1069,7 @@ function initMaq(){
  const unit={sus:'suscriptores',m3:'m³',hrs:'h por jornada'};
  const st={yaw:.7,pitch:.75,dist:24,auto:!RM,click:e=>{const r=cv.getBoundingClientRect(),v=new THREE.Vector2((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1),ray=new THREE.Raycaster();ray.setFromCamera(v,cam);const h=ray.intersectObjects(pick)[0];if(!h)return;
   const u=h.object.userData;let t,d,g;if(u.sector!=null){const s=SECT[u.sector];t='Sector '+s.n+(s.alta?' · Tierra Grata Alta':'');d=`${s.sus} suscriptores y ${s.m3} m³ en febrero de 2026. Programación 2022: ${s.hrs} h por jornada, ${s.dias.length} día(s) por semana. Fuente: ${s.src}.`;g='historia'}else{t=u.t;d=u.d;g=u.go}
-  $('maqInfoBody').innerHTML=`<h4>${t}</h4><p style="margin:.2em 0 8px">${d}</p><button class="btn deep" style="padding:8px 12px;font-size:.8rem" onclick="go('${g}')">Ver en la sala →</button>`;$('maqInfo').classList.add('on');$('maqHint').textContent=t}};
+  $('maqInfoBody').innerHTML=`<h4>${t}</h4><p style="margin:.2em 0 8px">${d}</p><button class="btn deep" style="padding:8px 12px;font-size:.8rem" onclick="go('${g}')">Ver en el módulo →</button>`;$('maqInfo').classList.add('on');$('maqHint').textContent=t}};
  $('maqInfo').querySelector('.x').onclick=()=>$('maqInfo').classList.remove('on');
  orbit(cv,st);
  const resize=()=>{const w=cv.clientWidth,h=cv.clientHeight;if(!w)return;R.setPixelRatio(Math.min(devicePixelRatio,2));R.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix()};addEventListener('resize',resize);resize();
